@@ -1,0 +1,38 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "artemis.kdlyextras",
+		"id": "kdlyextras",
+		"version": "${version}",
+
+		"metadata": {
+			"name": "KdlyExtras",
+			"description": "Adds extra content to KdlyContent as well as some other utilities and extras",
+			"authors": [
+				"artemisSystem"
+			],
+			"contact": {
+				"sources": "https://github.com/artemisSystem/kdlyextras",
+				"issues": "https://github.com/artemisSystem/kdlyextras/issues"
+			},
+			"license": "CC0-1.0"
+		},
+
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {
+			"init": [
+				"artemis.kdlyextras.KdlyExtras"
+			],
+			"kdlycontent:before": [
+				"artemis.kdlyextras.KdlyContentInit"
+			]
+		},
+
+		"depends": [
+			{ "id": "quilt_loader", "version": ">=0.17.5-beta.3" },
+			{ "id": "minecraft", "version": ">=1.18.2" },
+			{ "id": "java", "version": ">=17" },
+			{ "id": "kdlycontent", "version": "*" }
+		]
+	}
+}
