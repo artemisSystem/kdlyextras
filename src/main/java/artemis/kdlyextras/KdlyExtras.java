@@ -1,5 +1,6 @@
 package artemis.kdlyextras;
 
+import artemis.kdlyextras.worldgen.KdlyExtrasFoliagePlacerType;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
@@ -12,5 +13,6 @@ public class KdlyExtras implements ModInitializer {
 	@Override
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Hello from KdlyExtras!");
+		KdlyExtrasFoliagePlacerType.init();
 	}
 }

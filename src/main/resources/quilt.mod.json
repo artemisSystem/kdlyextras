@@ -34,5 +34,6 @@
 			{ "id": "java", "version": ">=17" },
 			{ "id": "kdlycontent", "version": "*" }
 		]
-	}
+	},
+	"access_widener": "kdlyextras.accesswidener"
 }
