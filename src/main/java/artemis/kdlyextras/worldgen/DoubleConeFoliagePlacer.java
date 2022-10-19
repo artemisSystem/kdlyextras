@@ -15,13 +15,13 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerTy
 import java.util.Random;
 import java.util.function.BiConsumer;
 
-public class BirchFoliagePlacer extends AdvancedFoliagePlacer {
+public class DoubleConeFoliagePlacer extends AdvancedFoliagePlacer {
 
 	private final IntProvider trunkHeight;
 	private final FloatProvider widestPartFrom;
 	private final FloatProvider widestPartTo;
 
-	public BirchFoliagePlacer(IntProvider radius, IntProvider offset, IntProvider trunkHeight, FloatProvider widestPartFrom, FloatProvider widestPartTo) {
+	public DoubleConeFoliagePlacer(IntProvider radius, IntProvider offset, IntProvider trunkHeight, FloatProvider widestPartFrom, FloatProvider widestPartTo) {
 		super(radius, offset);
 		// Distance from the ground to the first layer of leaves
 		this.trunkHeight = trunkHeight;
@@ -33,18 +33,18 @@ public class BirchFoliagePlacer extends AdvancedFoliagePlacer {
 		this.widestPartTo = widestPartTo;
 	}
 
-	public static final Codec<BirchFoliagePlacer> CODEC = RecordCodecBuilder.create(
+	public static final Codec<DoubleConeFoliagePlacer> CODEC = RecordCodecBuilder.create(
 		instance -> foliagePlacerParts(instance)
-				.and(IntProvider.codec(0, Integer.MAX_VALUE).fieldOf("trunk_height").forGetter(birchFoliagePlacer -> birchFoliagePlacer.trunkHeight))
+				.and(IntProvider.codec(0, Integer.MAX_VALUE).fieldOf("trunk_height").forGetter(doubleConeFoliagePlacer -> doubleConeFoliagePlacer.trunkHeight))
 				// The actual intended max value for these is 1, but apparently that means you have to set the max to 2
-				.and(FloatProvider.codec(0.0F, 2.0F).fieldOf("widest_part_from").forGetter(birchFoliagePlacer -> birchFoliagePlacer.widestPartFrom))
-				.and(FloatProvider.codec(0.0F, 2.0F).fieldOf("widest_part_to").forGetter(birchFoliagePlacer -> birchFoliagePlacer.widestPartTo))
-				.apply(instance, BirchFoliagePlacer::new)
+				.and(FloatProvider.codec(0.0F, 2.0F).fieldOf("widest_part_from").forGetter(doubleConeFoliagePlacer -> doubleConeFoliagePlacer.widestPartFrom))
+				.and(FloatProvider.codec(0.0F, 2.0F).fieldOf("widest_part_to").forGetter(doubleConeFoliagePlacer -> doubleConeFoliagePlacer.widestPartTo))
+				.apply(instance, DoubleConeFoliagePlacer::new)
 	);
 
 	@Override
 	protected FoliagePlacerType<?> type() {
-		return KdlyExtrasFoliagePlacerType.BIRCH_FOLIAGE_PLACER;
+		return KdlyExtrasFoliagePlacerType.DOUBLE_CONE_FOLIAGE_PLACER;
 	}
 
 	@Override
@@ -64,9 +64,6 @@ public class BirchFoliagePlacer extends AdvancedFoliagePlacer {
 		int widestPartMinY = yFromFloat(this.widestPartFrom, minY, maxY, random);
 		int widestPartMaxY = yFromFloat(this.widestPartTo, minY, maxY, random);
 
-		KdlyExtras.LOGGER.info("minY: {}, maxY: {}, foliageHeight: {}, widestPartFrom: {}, widestPartTo: {}",
-			minY, maxY, foliageHeight, widestPartFrom, widestPartTo);
-
 		for (int y = minY; y <= maxY; y++) {
 
 			// Uhh how do i explain this. area is just a general measure of "how big" a plane is, and the furthest out block
@@ -77,13 +74,10 @@ public class BirchFoliagePlacer extends AdvancedFoliagePlacer {
 			int area;
 			if (y > widestPartMaxY) {
 				area = Math.round(Mth.clampedMap(y, maxY, widestPartMaxY, 0, maxArea));
-				KdlyExtras.LOGGER.info("Top branch, y: {}, area: {}", y, area);
 			} else if (y >= widestPartMinY) {
 				area = maxArea;
-				KdlyExtras.LOGGER.info("Mid branch, y: {}, area: {}", y, area);
 			} else {
 				area = Math.round(Mth.clampedMap(y, widestPartMinY, minY, maxArea, 1));
-				KdlyExtras.LOGGER.info("Lower branch, y: {}, area: {}", y, area);
 			}
 			int radius =  Mth.ceil((float) area / 2);
 
