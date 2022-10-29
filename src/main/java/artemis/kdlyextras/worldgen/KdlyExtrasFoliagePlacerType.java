@@ -9,6 +9,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerTy
 
 public class KdlyExtrasFoliagePlacerType<P extends FoliagePlacer> extends FoliagePlacerType<P>{
 	public static final	KdlyExtrasFoliagePlacerType<DoubleConeFoliagePlacer> DOUBLE_CONE_FOLIAGE_PLACER = register("double_cone_foliage_placer", DoubleConeFoliagePlacer.CODEC);
+	public static final KdlyExtrasFoliagePlacerType<EllipsoidFoliagePlacer> ELLIPSOID_FOLIAGE_PLACER = register("ellipsoid_foliage_placer", EllipsoidFoliagePlacer.CODEC);
 
 	private KdlyExtrasFoliagePlacerType(Codec<P> codec) {
 		super(codec);

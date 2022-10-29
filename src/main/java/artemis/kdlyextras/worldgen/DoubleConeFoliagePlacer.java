@@ -1,6 +1,5 @@
 package artemis.kdlyextras.worldgen;
 
-import artemis.kdlyextras.KdlyExtras;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;

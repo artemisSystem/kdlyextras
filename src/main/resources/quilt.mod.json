@@ -35,5 +35,6 @@
 			{ "id": "kdlycontent", "version": "*" }
 		]
 	},
+	"mixin": "kdlyextras.mixins.json",
 	"access_widener": "kdlyextras.accesswidener"
 }
