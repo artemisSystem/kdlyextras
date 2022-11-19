@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 
@@ -25,7 +25,7 @@ public abstract class AdvancedFoliagePlacer extends FoliagePlacer {
 	protected void placeLeavesRowSigned(
 		LevelSimulatedReader level,
 		BiConsumer<BlockPos, BlockState> blockSetter,
-		Random random,
+		RandomSource random,
 		TreeConfiguration config,
 		BlockPos pos,
 		int range,
@@ -52,7 +52,7 @@ public abstract class AdvancedFoliagePlacer extends FoliagePlacer {
 	protected void placeLeavesRow(
 		LevelSimulatedReader level,
 		BiConsumer<BlockPos, BlockState> blockSetter,
-		Random random,
+		RandomSource random,
 		TreeConfiguration config,
 		BlockPos pos,
 		int range,

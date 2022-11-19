@@ -28,6 +28,7 @@ repositories {
 		name = 'ParchmentMC'
 		url = 'https://maven.parchmentmc.org'
 	} // Parchment Mappings
+	mavenLocal()
 }
 
 dependencies {
@@ -35,18 +36,18 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings loom.layered() {
 		officialMojangMappings()
-		parchment("org.parchmentmc.data:parchment-1.18.2:2022.09.04@zip")
+		parchment("org.parchmentmc.data:parchment-1.19.2:2022.11.06@zip")
 	}
 	modImplementation "org.quiltmc:quilt-loader:${project.loader_version}"
 	modImplementation "org.quiltmc.quilted-fabric-api:quilted-fabric-api:${project.qfapi_version}-${project.minecraft_version}"
 
 	modImplementation "gay.lemmaeof:KdlyContent:${project.kdlycontent_version}"
 
-	modLocalRuntime "maven.modrinth:configured-feature-saplings:1.0.1"
-	modLocalRuntime "maven.modrinth:modmenu:3.2.3"
+	// modLocalRuntime "maven.modrinth:configured-feature-saplings:1.0.1"
+	modLocalRuntime "maven.modrinth:modmenu:4.1.0"
 	modLocalRuntime "maven.modrinth:here-be-no-dragons:1.0.0"
 
-	modLocalRuntime "maven.modrinth:dynamic-fps:v2.1.0"
+	modLocalRuntime "maven.modrinth:dynamic-fps:2.2.0"
 	// There's a bug with quilt not loading JiJs properly, get this manually for now
 	modLocalRuntime "com.moandjiezana.toml:toml4j:0.7.2"
 }

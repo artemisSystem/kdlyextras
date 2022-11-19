@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 import java.util.function.BiConsumer;
 
 public class DoubleConeFoliagePlacer extends AdvancedFoliagePlacer {
@@ -50,7 +50,7 @@ public class DoubleConeFoliagePlacer extends AdvancedFoliagePlacer {
 	protected void createFoliage(
 		LevelSimulatedReader level,
 		BiConsumer<BlockPos, BlockState> blockSetter,
-		Random random,
+		RandomSource random,
 		TreeConfiguration config,
 		int maxFreeTreeHeight,
 		FoliageAttachment attachment,
@@ -101,12 +101,12 @@ public class DoubleConeFoliagePlacer extends AdvancedFoliagePlacer {
 		}
 	}
 
-	private int yFromFloat(FloatProvider value, int minY, int maxY, Random random) {
+	private int yFromFloat(FloatProvider value, int minY, int maxY, RandomSource random) {
 		return Mth.floor(Mth.lerp(value.sample(random), minY, maxY + 1));
 	}
 
 	@Override
-	public int foliageHeight(Random random, int height, TreeConfiguration config) {
+	public int foliageHeight(RandomSource random, int height, TreeConfiguration config) {
 		// So the calculation is:
 		// height of log area
 		// - trunk height config (bottom unleafed part of tree)
@@ -116,7 +116,7 @@ public class DoubleConeFoliagePlacer extends AdvancedFoliagePlacer {
 	}
 
 	@Override
-	protected boolean shouldSkipLocation(Random random, int localX, int localY, int localZ, int range, boolean doubleTrunk) {
+	protected boolean shouldSkipLocation(RandomSource random, int localX, int localY, int localZ, int range, boolean doubleTrunk) {
 		return false;
 	}
 }

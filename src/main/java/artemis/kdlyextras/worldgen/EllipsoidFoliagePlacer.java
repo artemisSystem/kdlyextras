@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 import java.util.function.BiConsumer;
 
 public class EllipsoidFoliagePlacer extends AdvancedFoliagePlacer {
@@ -29,7 +29,7 @@ public class EllipsoidFoliagePlacer extends AdvancedFoliagePlacer {
 	}
 
 	@Override
-	protected void createFoliage(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, Random random, TreeConfiguration config, int maxFreeTreeHeight, FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
+	protected void createFoliage(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, RandomSource random, TreeConfiguration config, int maxFreeTreeHeight, FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
 		// Make sure to use the radius that got sampled in foliageHeight and not sample a new one
 		int radius = (foliageHeight - 1) / 2;
 		BlockPos origin = attachment.pos().above(offset);
@@ -44,12 +44,12 @@ public class EllipsoidFoliagePlacer extends AdvancedFoliagePlacer {
 	}
 
 	@Override
-	public int foliageHeight(Random random, int height, TreeConfiguration config) {
+	public int foliageHeight(RandomSource random, int height, TreeConfiguration config) {
 		return 1 + 2 * this.radius.sample(random);
 	}
 
 	@Override
-	protected boolean shouldSkipLocation(Random random, int localX, int localY, int localZ, int range, boolean large) {
+	protected boolean shouldSkipLocation(RandomSource random, int localX, int localY, int localZ, int range, boolean large) {
 		return false;
 	}
 }

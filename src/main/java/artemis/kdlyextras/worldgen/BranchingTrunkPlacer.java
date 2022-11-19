@@ -17,7 +17,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 
 import java.util.List;
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 import java.util.function.BiConsumer;
 
 public class BranchingTrunkPlacer extends AdvancedTrunkPlacer {
@@ -62,7 +62,7 @@ public class BranchingTrunkPlacer extends AdvancedTrunkPlacer {
 	);
 
 	@Override
-	public List<FoliagePlacer.FoliageAttachment> placeTrunkWithCustomFoliage(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, BiConsumer<BlockPos, BlockState> foliageSetter, Random random, int freeTreeHeight, BlockPos pos, TreeConfiguration config) {
+	public List<FoliagePlacer.FoliageAttachment> placeTrunkWithCustomFoliage(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, BiConsumer<BlockPos, BlockState> foliageSetter, RandomSource random, int freeTreeHeight, BlockPos pos, TreeConfiguration config) {
 		List<FoliagePlacer.FoliageAttachment> extraFoliageAttachments = Lists.newArrayList();
 
 		// --- Tree placement ---
