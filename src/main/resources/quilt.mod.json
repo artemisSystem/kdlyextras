@@ -31,7 +31,9 @@
 		"depends": [
 			{ "id": "quilt_loader", "version": ">=0.18.1-beta.15" },
 			{ "id": "minecraft", "version": ">=1.19.2" },
-			{ "id": "java", "version": ">=17" },
+			{ "id": "java", "version": ">=17" }
+		],
+		"suggests": [
 			{ "id": "kdlycontent", "version": "*" }
 		]
 	},
