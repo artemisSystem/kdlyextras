@@ -47,6 +47,8 @@ dependencies {
 	modLocalRuntime "maven.modrinth:modmenu:4.1.0"
 	modLocalRuntime "maven.modrinth:here-be-no-dragons:1.0.0"
 
+	modLocalRuntime "maven.modrinth:configured-feature-saplings:1.1.0"
+
 	modLocalRuntime "maven.modrinth:dynamic-fps:2.2.0"
 	// There's a bug with quilt not loading JiJs properly, get this manually for now
 	modLocalRuntime "com.moandjiezana.toml:toml4j:0.7.2"
