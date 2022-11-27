@@ -21,9 +21,9 @@ import java.util.function.BiConsumer;
 public abstract class TreeFeatureMixin {
 	@Redirect(
 		method = "doPlace",
-		at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/levelgen/feature/trunkplacers/TrunkPlacer;placeTrunk(Lnet/minecraft/world/level/LevelSimulatedReader;Ljava/util/function/BiConsumer;Ljava/util/Random;ILnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/levelgen/feature/configurations/TreeConfiguration;)Ljava/util/List;")
+		at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/levelgen/feature/trunkplacers/TrunkPlacer;placeTrunk(Lnet/minecraft/world/level/LevelSimulatedReader;Ljava/util/function/BiConsumer;Lnet/minecraft/util/RandomSource;ILnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/levelgen/feature/configurations/TreeConfiguration;)Ljava/util/List;")
 	)
-	List<FoliagePlacer.FoliageAttachment>  doPlaceWithAdvancedTrunkPlacer(TrunkPlacer trunkPlacer, LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, RandomSource random, int freeTreeHeight, BlockPos pos, TreeConfiguration config, WorldGenLevel worldGenLevel, RandomSource random2, BlockPos pos2, BiConsumer<BlockPos, BlockState> trunkBlockSetter, BiConsumer<BlockPos, BlockState> foliageBlockSetter, TreeConfiguration config2) {
+	List<FoliagePlacer.FoliageAttachment>  doPlaceWithAdvancedTrunkPlacer(TrunkPlacer trunkPlacer, LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, RandomSource random, int freeTreeHeight, BlockPos pos, TreeConfiguration config, WorldGenLevel worldGenLevel, RandomSource random2, BlockPos pos2, BiConsumer<BlockPos, BlockState> rootBlockSetter, BiConsumer<BlockPos, BlockState> trunkBlockSetter,  BiConsumer<BlockPos, BlockState> foliageBlockSetter, TreeConfiguration config2) {
 		if (trunkPlacer instanceof AdvancedTrunkPlacer advancedTrunkPlacer) {
 			return advancedTrunkPlacer.placeTrunkWithCustomFoliage(level, blockSetter, foliageBlockSetter, random, freeTreeHeight, pos, config);
 		} else {
