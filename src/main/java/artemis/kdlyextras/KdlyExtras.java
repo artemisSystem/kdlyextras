@@ -1,6 +1,7 @@
 package artemis.kdlyextras;
 
 import artemis.kdlyextras.worldgen.KdlyExtrasFoliagePlacerType;
+import artemis.kdlyextras.worldgen.KdlyExtrasPlacementModifierType;
 import artemis.kdlyextras.worldgen.KdlyExtrasTrunkPlacerType;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
@@ -15,5 +16,6 @@ public class KdlyExtras implements ModInitializer {
 	public void onInitialize(ModContainer mod) {
 		KdlyExtrasTrunkPlacerType.init();
 		KdlyExtrasFoliagePlacerType.init();
+		KdlyExtrasPlacementModifierType.init();
 	}
 }
