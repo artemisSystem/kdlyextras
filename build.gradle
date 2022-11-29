@@ -48,6 +48,7 @@ dependencies {
 	modLocalRuntime "maven.modrinth:here-be-no-dragons:1.0.0"
 
 	modLocalRuntime "maven.modrinth:configured-feature-saplings:1.1.0"
+	modLocalRuntime "net.darkhax.openloader:OpenLoader-Fabric-1.19.2:15.0.0"
 
 	modLocalRuntime "maven.modrinth:dynamic-fps:2.2.0"
 	// There's a bug with quilt not loading JiJs properly, get this manually for now

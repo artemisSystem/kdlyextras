@@ -21,6 +21,7 @@ abstract public class AdvancedTrunkPlacer extends TrunkPlacer {
 	public List<FoliagePlacer.FoliageAttachment> placeTrunk(
 		LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter,
 		RandomSource random, int freeTreeHeight, BlockPos pos, TreeConfiguration config) {
+		// TODO use a proper UnsupportedOperationException?
 		KdlyExtras.LOGGER.error("ERROR: placeTrunk was called on an AdvancedTrunkPlacer. Doing nothing.");
 		return List.of();
 	}
