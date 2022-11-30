@@ -1,4 +1,4 @@
-package artemis.kdlyextras.worldgen;
+package artemis.kdlyextras.worldgen.feature;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;

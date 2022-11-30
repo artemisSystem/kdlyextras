@@ -1,6 +1,6 @@
 package artemis.kdlyextras.mixin;
 
-import artemis.kdlyextras.worldgen.AdvancedTrunkPlacer;
+import artemis.kdlyextras.worldgen.feature.AdvancedTrunkPlacer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;

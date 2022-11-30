@@ -1,4 +1,4 @@
-package artemis.kdlyextras.worldgen;
+package artemis.kdlyextras.worldgen.feature;
 
 import artemis.kdlyextras.KdlyExtras;
 import com.mojang.serialization.Codec;

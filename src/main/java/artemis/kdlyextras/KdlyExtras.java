@@ -1,8 +1,8 @@
 package artemis.kdlyextras;
 
-import artemis.kdlyextras.worldgen.KdlyExtrasFoliagePlacerType;
-import artemis.kdlyextras.worldgen.KdlyExtrasPlacementModifierType;
-import artemis.kdlyextras.worldgen.KdlyExtrasTrunkPlacerType;
+import artemis.kdlyextras.worldgen.feature.KdlyExtrasFoliagePlacerType;
+import artemis.kdlyextras.worldgen.placement_modifier.KdlyExtrasPlacementModifierType;
+import artemis.kdlyextras.worldgen.feature.KdlyExtrasTrunkPlacerType;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;

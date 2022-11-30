@@ -1,4 +1,4 @@
-package artemis.kdlyextras.worldgen;
+package artemis.kdlyextras.worldgen.placement_modifier;
 
 import com.mojang.datafixers.Products.P1;
 import com.mojang.serialization.Codec;
