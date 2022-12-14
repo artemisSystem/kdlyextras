@@ -43,8 +43,8 @@ dependencies {
 
 	modImplementation "gay.lemmaeof:KdlyContent:${project.kdlycontent_version}"
 
-	modApi "com.unascribed:lib39-dessicant:1.3.4"
-	include "com.unascribed:lib39-dessicant:1.3.4"
+	include "com.unascribed:lib39-core:1.3.4"
+	modApi include ("com.unascribed:lib39-dessicant:1.3.4")
 
 	// modLocalRuntime "maven.modrinth:configured-feature-saplings:1.0.1"
 	modLocalRuntime "maven.modrinth:modmenu:4.1.0"
