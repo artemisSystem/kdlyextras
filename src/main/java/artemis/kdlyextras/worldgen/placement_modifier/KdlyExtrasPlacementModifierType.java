@@ -14,6 +14,6 @@ public interface KdlyExtrasPlacementModifierType<P extends PlacementModifier> ex
 	static void init() {}
 
 	private static <P extends PlacementModifier> KdlyExtrasPlacementModifierType<P> register(String name, Codec<P> codec) {
-		return Registry.register(Registry.PLACEMENT_MODIFIERS, new ResourceLocation(KdlyExtras.MODID, name), () -> codec);
+		return Registry.register(Registry.PLACEMENT_MODIFIERS, new ResourceLocation(KdlyExtras.MOD_ID, name), () -> codec);
 	}
 }

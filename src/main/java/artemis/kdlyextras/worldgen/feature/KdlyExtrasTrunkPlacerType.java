@@ -17,6 +17,6 @@ public class KdlyExtrasTrunkPlacerType<P extends TrunkPlacer> extends TrunkPlace
 	public static void init() {}
 
 	private static <P extends TrunkPlacer> KdlyExtrasTrunkPlacerType<P> register(String name, Codec<P> codec) {
-		return Registry.register(Registry.TRUNK_PLACER_TYPES, new ResourceLocation(KdlyExtras.MODID, name), new KdlyExtrasTrunkPlacerType<>(codec));
+		return Registry.register(Registry.TRUNK_PLACER_TYPES, new ResourceLocation(KdlyExtras.MOD_ID, name), new KdlyExtrasTrunkPlacerType<>(codec));
 	}
 }

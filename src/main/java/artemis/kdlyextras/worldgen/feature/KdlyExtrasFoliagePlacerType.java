@@ -18,7 +18,7 @@ public class KdlyExtrasFoliagePlacerType<P extends FoliagePlacer> extends Foliag
 	public static void init() {}
 
 	private static <P extends FoliagePlacer> KdlyExtrasFoliagePlacerType<P> register(String name, Codec<P> codec) {
-		return Registry.register(Registry.FOLIAGE_PLACER_TYPES, new ResourceLocation(KdlyExtras.MODID, name), new KdlyExtrasFoliagePlacerType<>(codec));
+		return Registry.register(Registry.FOLIAGE_PLACER_TYPES, new ResourceLocation(KdlyExtras.MOD_ID, name), new KdlyExtrasFoliagePlacerType<>(codec));
 	}
 
 }
