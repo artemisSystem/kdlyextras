@@ -4,5 +4,8 @@
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 		"TreeFeatureMixin"
+	],
+	"client": [
+		"BlockModelDeserializerMixin"
 	]
 }
