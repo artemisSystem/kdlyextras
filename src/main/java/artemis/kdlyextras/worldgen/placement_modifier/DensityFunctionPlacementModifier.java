@@ -1,5 +1,6 @@
 package artemis.kdlyextras.worldgen.placement_modifier;
 
+import artemis.kdlyextras.worldgen.KdlyExtrasDensityFunctionVisitor;
 import com.mojang.datafixers.Products.P1;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder.Instance;

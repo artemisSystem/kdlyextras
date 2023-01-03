@@ -1,4 +1,4 @@
-package artemis.kdlyextras.worldgen.placement_modifier;
+package artemis.kdlyextras.worldgen;
 
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.levelgen.DensityFunction;
