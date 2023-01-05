@@ -1,5 +1,7 @@
 package artemis.kdlyextras.kdlycontent;
 
+import artemis.kdlyextras.KdlyExtras;
+import artemis.kdlyextras.RecombiningSlabsEntry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
@@ -24,6 +26,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
 import java.util.function.Predicate;
 
 public class VerticalSlabBlock extends Block implements SimpleWaterloggedBlock {
@@ -108,7 +111,12 @@ public class VerticalSlabBlock extends Block implements SimpleWaterloggedBlock {
 		BlockPos clickedPos = blockPlaceContext.getClickedPos();
 		BlockState clickedPosState = blockPlaceContext.getLevel().getBlockState(clickedPos);
 		if (clickedPosState.is(this)) {
-			return clickedPosState.setValue(TYPE, SlabType.DOUBLE).setValue(WATERLOGGED, false);
+			Optional<RecombiningSlabsEntry> recombineEntry = KdlyExtras.REAs.RECOMBINING_SLABS.get(this);
+			if (recombineEntry.isPresent()){
+				return recombineEntry.get().getNewState(clickedPosState.getValue(AXIS));
+			} else {
+				return clickedPosState.setValue(TYPE, SlabType.DOUBLE).setValue(WATERLOGGED, false);
+			}
 		} else {
 			FluidState fluidState = blockPlaceContext.getLevel().getFluidState(clickedPos);
 			BlockState state = this.defaultBlockState().setValue(WATERLOGGED, fluidState.getType() == Fluids.WATER);
