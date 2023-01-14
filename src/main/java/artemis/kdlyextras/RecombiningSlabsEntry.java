@@ -15,7 +15,7 @@ public class RecombiningSlabsEntry {
 		BlockState::getBlock
 	);
 	private static final Codec<BlockState> BLOCKSTATE_CODEC = Codec.either(BlockState.CODEC, DEFAULT_BLOCKSTATE_CODEC).xmap(
-		RecombiningSlabsEntry::collapseEither,
+		either -> either.map(l -> l, r -> r),
 		Either::left
 	);
 
@@ -32,7 +32,7 @@ public class RecombiningSlabsEntry {
 	);
 
 	public static final Codec<RecombiningSlabsEntry> CODEC = Codec.either(KEEP_AXIS_CODEC, SIMPLE_CODEC).xmap(
-		RecombiningSlabsEntry::collapseEither,
+		either -> either.map(l -> l, r -> r),
 		Either::left
 	);
 
@@ -58,15 +58,5 @@ public class RecombiningSlabsEntry {
 			state = state.setValue(BlockStateProperties.HORIZONTAL_AXIS, axis);
 		}
 		return state;
-	}
-
-	private static <T> T collapseEither(Either<T, T> either) {
-		if (either.left().isPresent()) {
-			return either.left().get();
-		} else {
-			// If it's not left, it has to be right. Without this assert, there's a warning here.
-			assert either.right().isPresent();
-			return either.right().get();
-		}
 	}
 }
