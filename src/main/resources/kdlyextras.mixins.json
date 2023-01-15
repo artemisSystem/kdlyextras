@@ -3,6 +3,7 @@
 	"package": "artemis.kdlyextras.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
+		"BeeHiveBlockMixin",
 		"ItemPredicateMixin",
 		"SlabBlockMixin",
 		"TreeFeatureMixin"

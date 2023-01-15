@@ -23,10 +23,7 @@ public abstract class ItemPredicateMixin {
 		)
 	)
 	public boolean kdlyextras_innateSilkTouch(EnchantmentPredicate enchantmentPredicate, Map<Enchantment, Integer> enchantments, ItemStack stack) {
-		// The result of this gets negated, but we want to return true if things match
-		if (enchantmentPredicate.containedIn(enchantments)) {
-			return true;
-		}
-		return stack.is(KdlyExtras.Tags.INNATE_SILK_TOUCH);
+		// Does the original check and then tacks on the tag check.
+		return enchantmentPredicate.containedIn(enchantments) || stack.is(KdlyExtras.Tags.INNATE_SILK_TOUCH);
 	}
 }
